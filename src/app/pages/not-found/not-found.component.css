@@ -1,0 +1,13 @@
+.not__found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 89vh;
+    background-color: #424242;
+    
+}
+
+.not__found__title{
+    color: white;
+    font-size: 140px;
+}

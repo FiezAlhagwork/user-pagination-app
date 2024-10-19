@@ -1,0 +1,12 @@
+<div class="card__details">
+
+  @if(data){
+        <app-card-user [UserData]="data" />
+     
+  }
+  @else {
+        <div class="error">
+                <h2>not found</h2>
+        </div>   
+  }
+</div>

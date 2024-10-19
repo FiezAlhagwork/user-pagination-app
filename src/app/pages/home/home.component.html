@@ -1,0 +1,87 @@
+<div style="background-color: #424242; height: 89vh">
+
+
+  @if (loading) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+
+
+   <!-- input Search -->
+  <mat-form-field class="example-full-width">
+    <mat-label>Search for table</mat-label>
+    <input
+      matInput
+      [(ngModel)]="filterValue"
+      (ngModelChange)="applyFilter()"
+      placeholder="Search ..."
+    />
+  </mat-form-field>
+
+
+  <!-- // table -->
+   @if(!loading){
+
+    <div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="First_Name">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.first_name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last_Name">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.last_name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef>avatar</th>
+      <td mat-cell *matCellDef="let element">
+        <img
+          [src]="element.avatar"
+          style="width: 40px; height: 40px; border-radius: 50%"
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-flat-button (click)="goToUserDetailsPage(element.id)">
+          Details
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+   }
+
+
+   <!-- // pagination -->
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span class="page">Page {{ currentPage }} of {{ totalUsers }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalUsers">
+      <mat-icon
+        ><span class="material-symbols-outlined">
+          chevron_right
+        </span></mat-icon
+      >
+    </button>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.card__details{
+    display: flex;
+    align-items: center;
+    background-color: rgb(107, 103, 103);
+    height: 89vh;
+    flex-direction: column;
+
+}
+
+.error{
+    display: flex;
+    justify-items: center;
+    margin-top: 50px;
+    font-size: 40px;
+}

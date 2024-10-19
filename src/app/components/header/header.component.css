@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px  10px;
+
+}
+header .logo  h2{
+  font-size: 25px;
+  color: white;
+  text-transform: capitalize;
+}
